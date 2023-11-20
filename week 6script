@@ -1,0 +1,92 @@
+Select  first_name ||' '||  last_name ,
+concat(first_name||' ',last_name),
+concat(concat(first_name,' '),last_name),
+upper(first_name) upper_f,
+lower(first_name) lower_f,
+Initcap('az?rbaycan') initcap_f,
+length(first_name)  len_f,
+rpad(first_name,20,'*') rpad_f,
+lpad(first_name,20,'*') lpad_f,
+'Test' ||trim(' sdfsdf ')||'son' 
+from  hr.employees;
+
+
+Select  
+lpad(first_name,20,'*') lpad_f,
+'Test' ||trim(' sdfsdf ')||'son' trim_f,
+'Test' ||ltrim(' sdfsdf ')||'son'  ltrim_f,
+'Test' ||rtrim(' sdfsdf ')||'son'  rtrim_f,
+initcap(replace(lower(first_name),'e','?'))  replace_f,
+substr('Az?rbaycan',1,4) substr1,
+substr('Az?rbaycan',8,3) substr2 ,
+substr('Az?rbaycan',-3,3) substr2,
+instr('Az?rbaycan','a',1,2) instr_f
+from  hr.employees;
+
+Select  *  from  hr.employees;
+
+60 nomreli departamentdeki  iscelerin  ad  ve  soyad adlarini 
+ilk  ve son herfleri  qalmaqla  *  ile  sifreleyin
+
+B******z
+
+select substr(first_name,1,1)||'******'||substr(first_name,-1,1) lpad_f
+from hr.employees
+where department_id=60;
+
+
+Select  first_name , to_char(hire_date,'dd-MON-yy') from  hr.employees 
+where   to_char(hire_date,'yyyy')='2007'
+
+Select  first_name , to_date('01.01.2007','dd-mm-yy') from  hr.employees 
+
+Select nvl(MANAGER_ID,999) from  hr.employees ;
+
+Select  decode(substr(first_name,1,1),'A','Ilk Herf A dir',substr(first_name,1,1))
+from  hr.employees 
+
+Select  decode(department_id,60,to_char(salary),'*********') 
+from  hr.employees ;
+
+Case 
+ when ****** then ****
+ ---------
+ when ****** then ****
+ else ******
+ end case_col
+
+
+Select first_name, case  
+when  salary between  0 and  3000 then 'Kasibdir'
+when  salary between  3001 and  8000 then 'Kasib deyil'
+when  salary between  8001 and  9000 then 'Varlidir'
+else  'Masallah'
+end  isci_yasyis
+from   hr.employees;
+
+
+select substr(first_name,1,1) || rpad('*',LENGTH(first_name)-2,'*') || substr(first_name,-1,1)
+from hr.employees where department_id=60 ;
+
+
+Select  extract(MOnth  from  to_date('05.01.2021','dd.mm.yyyy'))  from  dual ;
+
+Select *  from hr.employees   where extract(year  from  hire_date)='2007'
+
+Select *  from hr.employees   where  hire_date=trunc(sysdate) ;
+
+Select  max(salary),min(salary),avg(salary),sum(salary),count(*) 
+from  HR.employees ;
+
+Select  sum(salary),department_id  from  HR.employees  group  by department_id;
+
+
+select sum(salary),department_id,extract(year from hire_date) 
+from HR.employees group by department_id, extract(year from hire_date);
+
+Select  count(*),to_char(hire_date,'yyyy')  ,  department_id  from  hr.employees  
+having  count(*) between 5 and  100 group by  to_char(hire_date,'yyyy')  ,  department_id ;
+
+Select count(first_name),count(nvl(manager_id,1))  from   hr.employees 
+
+

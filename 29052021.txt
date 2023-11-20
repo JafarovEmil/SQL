@@ -1,0 +1,122 @@
+Select emp.fırst_name,dep.department_name  from  employees  emp ,
+departments dep  
+where dep.department_ıd=emp.department_ıd ;
+
+Select emp.fırst_name,dep.department_name  from  employees  emp ,
+departments dep  
+where dep.department_ıd=emp.department_ıd(+) ;
+
+Select  emp.fırst_name,dep.department_name  from employees  emp  inner join hr.departments  dep 
+on  dep.department_ıd=emp.department_ıd ;
+
+Select  emp.fırst_name,dep.department_name  from employees  emp 
+left join hr.departments  dep 
+on  dep.department_ıd=emp.department_ıd ;
+
+Select  emp.fırst_name,dep.department_name  from hr.departments  dep 
+right join employees  emp 
+on  dep.department_ıd=emp.department_ıd ;
+
+
+1 2 3 4 5 6
+1 2 7 8 5 9
+
+1 2 5 inner 
+
+123456 left 
+127859 right
+
+1 2 3    null 4    5 6    null
+1 2 null 7    null 5 null 9 
+
+
+
+
+Select emp.first_name , emp.last_name, emp1.last_name as Manager_name  
+from  hr.employees emp inner join hr.employees emp1  on emp.manager_id=emp1.employee_id;
+
+ 
+inner  join
+
+
+left join
+right join 
+full join
+cross  join
+self join
+ 
+ 
+ Iscilerin  adini  cixardin  qarsisinda  managerinin adi olmaq serti ile.
+ 
+ Select emp.first_name ,  man.first_name as Manager_name  
+from  hr.employees emp 
+inner join hr.employees man  on emp.manager_id=man.employee_id ;
+
+empid       manid
+1 Bahruz  5
+
+empid   manid
+5 hesen 10 
+10 ilham 
+
+
+Select  emp.fırst_name,dep.department_name,dep.department_ıd,dep.department_ıd  from hr.departments  dep 
+inner  join employees  emp 
+on  dep.department_ıd=emp.department_ıd  and emp.salary>5000;
+
+Select  emp.fırst_name,dep.department_name,dep.department_ıd,dep.department_ıd  from hr.departments  dep 
+inner join employees  emp 
+on  dep.department_ıd=emp.department_ıd   
+where emp.salary>5000;
+
+Select emp.fırst_name,emp.last_name,dep.department_name,loc.state_province  from  
+employees  emp  inner  join  
+hr.departments  dep 
+on dep.department_ıd=emp.department_ıd  inner join
+ hr.locations  loc  on  dep.location_id=loc.location_id ;
+
+
+Select  first_name , last_name  ,department_id  from  hr.employees where department_ıd in (10,20,90,60 ) 
+union all
+Select  first_name , last_name  ,department_id  from  hr.employees where department_ıd in (30,40,20 ) ;
+
+
+Select  first_name , last_name  ,department_id  from  hr.employees where department_ıd in (10,20,90,60 ) 
+minus
+Select  first_name , last_name  ,department_id  from  hr.employees where department_ıd in (30,40,20 ) ;
+
+Select  first_name , last_name  ,department_id,'credit_ops' tr_type  from  hr.employees where department_ıd in (10,20,90,60 ) 
+union all
+Select  first_name , last_name  ,department_id,'card_ops'   from  hr.employees where department_ıd in (30,40,20 ) ;
+
+
+Select  first_name , last_name  ,department_id  from  hr.employees where department_ıd in (10,20,90,60 ) 
+intersect
+Select  first_name , last_name  ,department_id  from  hr.employees where department_ıd in (30,40,20 ) ;
+
+
+
+  Select  *  from (
+Select  first_name , last_name  ,department_id  from  hr.employees where department_ıd in (10,20,90,60 ) 
+union all
+Select  first_name , last_name  ,department_id  from  
+hr.employees where department_ıd in (30,40,20 )
+
+) sq   where  sq.DEPARTMENT_ID=90 ;
+
+Select  first_name , last_name  ,department_id,
+(Select  avg(salary)  from hr.employees emp1
+where emp1.department_ıd=emp.department_ıd ) avg_sal   from  
+hr.employees  emp ;
+
+Select  first_name , last_name  ,department_id,
+(Select  first_name  from hr.employees emp1
+where emp1.employee_ıd=emp.manager_ıd ) manager_name   from  
+hr.employees  emp ;
+
+
+
+
+
+ 
+ 

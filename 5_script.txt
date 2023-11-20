@@ -21,18 +21,18 @@ Select * from hr.employees ;
 Select last_name,first_name,salary,salary+100  from hr.employees ; 
 
 Select 
-last_name as "Isçinin adi",
-first_name as "Isçinin soyadi",
+last_name as "IsÃ§inin adi",
+first_name as "IsÃ§inin soyadi",
 salary as  Maasi,salary*1.3 "Yeni maas"  from hr.employees ; 
 
 
 Select 
-last_name||first_name as "Isçinin adi soyadi",
+last_name||first_name as "IsÃ§inin adi soyadi",
 salary as  Maasi,salary*1.3 "Yeni maas"  from hr.employees ; 
 
 
 Select 
-last_name||' '||first_name as "Isçinin adi soyadi",
+last_name||' '||first_name as "IsÃ§inin adi soyadi",
 salary as  Maasi,salary*1.3 "Yeni maas"  from hr.employees ; 
 
 King Steven  aldigi  maas : 24000 
